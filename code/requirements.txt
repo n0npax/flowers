@@ -1,0 +1,4 @@
+semver
+pytest
+bandit
+black
