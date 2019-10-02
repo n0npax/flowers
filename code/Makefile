@@ -1,17 +1,28 @@
+.PHONY: clear
+clear:
+	find -type f -name "*.pyc" -delete
+
+.PHONY: lint
 lint: lint-black lint-sec
 
+.PHONY: lint-black
 lint-black:
-	black --check .
+	black --check -q .
 
+.PHONY: lint-sec
 lint-sec:
-	bandit .
+	bandit -r -c .bandit.yaml -q .
 
+.PHONY: docker
 docker:
 	docker build . -t demo-project
 
+.PHONY: test
 test:
 	python3 -m pytest .
 
-all: resolve-version
+.PHONY: all
+all: clear
+	$(MAKE) lint
 	$(MAKE) test
 	$(MAKE) docker	
