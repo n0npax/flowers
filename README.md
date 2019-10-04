@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/n0npax/preferred-supplier/branch/master/graph/badge.svg)](https://codecov.io/gh/n0npax/preferred-supplier)
+[![codecov](https://codecov.io/gh/n0npax/flowers/branch/master/graph/badge.svg)](https://codecov.io/gh/n0npax/flowers)
 
 # System to manage and score suppliers
 

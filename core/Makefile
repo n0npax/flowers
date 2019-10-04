@@ -15,7 +15,7 @@ lint-sec: deps
 
 .PHONY: build
 build: deps
-	echo TODO
+	python3 -m pip wheel . -w build
 
 .PHONY: test
 test: deps
