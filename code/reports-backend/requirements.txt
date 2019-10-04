@@ -1,4 +1,0 @@
-semver
-pytest
-bandit
-black

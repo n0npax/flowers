@@ -1,0 +1,7 @@
+requests
+codecov
+pytest-cov
+semver
+pytest
+black
+bandit

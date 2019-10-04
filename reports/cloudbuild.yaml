@@ -1,0 +1,35 @@
+steps:
+  - id: build builder
+    name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/${_BUILDER_IMAGE}'
+      - '-f'
+      - 'Dockerfile.builder'
+      - '.'
+    dir: reports
+
+  - id: build artifact
+    name: 'gcr.io/$PROJECT_ID/${_BUILDER_IMAGE}'
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        make all
+    dir: reports
+
+  - id: push codecov
+    name: 'gcr.io/$PROJECT_ID/${_BUILDER_IMAGE}'
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        make codecov COMMIT_SHA=${COMMIT_SHA} CODECOV_TOKEN=$_CODECOV_TOKEN
+    dir: reports
+
+
+artifacts:
+  objects:
+    location: 'gs://${PROJECT_ID}-artifacts/artifacts/codecov'
+    paths: ['reports/coverage-${COMMIT_SHA}.xml']
