@@ -1,9 +1,7 @@
-import pytest
 import semver
-from version import *
+from version import version
 
 
 def test_version():
-    v = version()
-    version_dict = semver.parse(v)
+    version_dict = semver.parse(version)
     assert version_dict

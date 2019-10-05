@@ -4,14 +4,15 @@ import os
 
 from setuptools import setup, find_packages
 
+from src import version as pkg_version
+
 # Meta information
-version = open("VERSION").read().strip()
 dirname = os.path.dirname(__file__)
 
 setup(
     # Basic info
     name="flowers-core",
-    version=version,
+    version=pkg_version.version,
     author="Marcin Niemira",
     author_email="marcin.niemira@gmail.com",
     url="https://github.com/n0npax/flowers",
