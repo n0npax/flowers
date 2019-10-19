@@ -3,6 +3,15 @@
 # System to water flower (v2)
 
 ## Components
+* [ ] K8s to host metrics and apps
+* [ ] Firebase to host UI
+* [ ] App engine to host core system
+* [ ] Stack Driver for alerting
+
+### Build
+* [x] Autogenerate triggers per application
+* [ ] Autodeploy infra
+* [ ] Autodeploy app
 
 ### Database NoSQL(firestore)
 
