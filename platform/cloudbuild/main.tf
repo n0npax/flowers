@@ -13,7 +13,7 @@ resource "google_cloudbuild_trigger" "flowers-trigger" {
       branch = "${var.branch}"
     }
   }
-  included_files = ["core/**"]
-  filename       = "core/cloudbuild.yaml"
+  included_files = ["apps/core/**"]
+  filename       = "apps/core/cloudbuild.yaml"
 }
 

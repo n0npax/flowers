@@ -1,2 +1,2 @@
 all:
-	$(MAKE) -C core all
+	$(MAKE) -C apps/core all

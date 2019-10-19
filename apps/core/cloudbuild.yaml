@@ -8,7 +8,7 @@ steps:
       - '-f'
       - 'Dockerfile.builder'
       - '.'
-    dir: core
+    dir: 'apps/core'
 
   - id: build artifact
     name: 'gcr.io/$PROJECT_ID/${_BUILDER_IMAGE}'
@@ -17,7 +17,7 @@ steps:
       - '-c'
       - |
         make all
-    dir: core
+    dir: 'apps/core'
 
   - id: push codecov
     name: 'gcr.io/$PROJECT_ID/${_BUILDER_IMAGE}'
@@ -26,7 +26,7 @@ steps:
       - '-c'
       - |
         make codecov COMMIT_SHA=${COMMIT_SHA} CODECOV_TOKEN=$_CODECOV_TOKEN
-    dir: core
+    dir: 'apps/core'
 
 
 artifacts:
