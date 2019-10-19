@@ -1,10 +1,22 @@
+locals {
+  apps = distinct([
+    for file_name in fileset("../../apps", "**/cloudbuild.yaml") :
+    dirname(file_name)
+  ])
+}
+
+output "apps" {
+  value = "${local.apps}"
+}
+
 resource "google_cloudbuild_trigger" "flowers-trigger" {
+  for_each    = toset(local.apps)
   provider    = "google-beta"
   disabled    = false
-  description = "core logic app"
+  description = "APP: ${each.value}"
   substitutions = {
-    _ENV = "${var.env}"
-    _PROJECT_ID = "${var.project_id}"
+    _ENV           = "${var.env}"
+    _BUILDER_IMAGE = "temp-image-${each.value}"
   }
 
   github {
@@ -14,7 +26,7 @@ resource "google_cloudbuild_trigger" "flowers-trigger" {
       branch = "${var.branch}"
     }
   }
-  included_files = ["apps/core/**"]
-  filename       = "apps/core/cloudbuild.yaml"
+  included_files = ["apps/${each.value}/**"]
+  filename       = "apps/${each.value}/cloudbuild.yaml"
 }
 

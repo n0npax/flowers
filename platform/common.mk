@@ -6,7 +6,7 @@ fmt:
 init:
 	terraform init .
 
-plan: init fmt
+plan: fmt
 	terraform $@ --var-file ../dev.tfvars --var-file ../common.tfvars
 
 apply: fmt
