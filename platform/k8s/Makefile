@@ -4,10 +4,10 @@ fmt:
 	terraform fmt .
 
 plan: fmt
-	terraform $@ --var-file dev.tfvars --var-file common.tfvars
+	terraform $@ --var-file ../dev.tfvars --var-file ../common.tfvars
 
 apply:
-	terraform $@ --var-file dev.tfvars --var-file common.tfvars --auto-approve
+	terraform $@ --var-file ../dev.tfvars --var-file ../common.tfvars --auto-approve
 
 destroy:
-	terraform $@ --var-file dev.tfvars --var-file common.tfvars --auto-approve
+	terraform $@ --var-file ../dev.tfvars --var-file ../common.tfvars --auto-approve
