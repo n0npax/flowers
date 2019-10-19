@@ -4,6 +4,7 @@ resource "google_cloudbuild_trigger" "flowers-trigger" {
   description = "core logic app"
   substitutions = {
     _ENV = "${var.env}"
+    _PROJECT_ID = "${var.project_id}"
   }
 
   github {

@@ -31,5 +31,5 @@ steps:
 
 artifacts:
   objects:
-    location: 'gs://${PROJECT_ID}-artifacts/artifacts/codecov'
+    location: 'gs://${_PROJECT_ID}-artifacts/artifacts/codecov'
     paths: ['core/coverage-${COMMIT_SHA}.xml']
