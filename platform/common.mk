@@ -6,11 +6,11 @@ fmt:
 init:
 	terraform init .
 
-plan: fmt
+plan: fmt init
 	terraform $@ --var-file ../dev.tfvars --var-file ../common.tfvars
 
-apply: fmt
+apply: fmt init
 	terraform $@ --var-file ../dev.tfvars --var-file ../common.tfvars --auto-approve
 
-destroy:
+destroy: init
 	terraform $@ --var-file ../dev.tfvars --var-file ../common.tfvars --auto-approve

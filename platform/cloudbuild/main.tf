@@ -30,3 +30,22 @@ resource "google_cloudbuild_trigger" "flowers-trigger" {
   filename       = "apps/${each.value}/cloudbuild.yaml"
 }
 
+resource "google_cloudbuild_trigger" "platform-trigger" {
+  provider    = "google-beta"
+  disabled    = false
+  description = "Platform"
+  substitutions = {
+    _ENV = "${var.env}"
+  }
+
+  github {
+    owner = "n0npax"
+    name  = "flowers"
+    push {
+      branch = "${var.branch}"
+    }
+  }
+  included_files = ["platform/**"]
+  filename       = "platform/cloudbuild.yaml"
+}
+
