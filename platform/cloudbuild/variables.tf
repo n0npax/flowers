@@ -6,3 +6,11 @@ variable "location" {
 variable "project_id" {
   type = "string"
 }
+
+variable "branch" {
+  type = string
+}
+
+variable "env" {
+  type = string
+}

@@ -1,19 +1,18 @@
 resource "google_cloudbuild_trigger" "flowers-trigger" {
-  provider = "google-beta"
-
-  trigger_template {
-    branch_name = "master"
-  }
-
+  provider    = "google-beta"
+  disabled    = false
+  description = "core logic app"
   substitutions = {
-    _BAZ = "qux"
+    _ENV = "${var.env}"
   }
 
   github {
     owner = "n0npax"
     name  = "flowers"
+    push {
+      branch = "${var.branch}"
+    }
   }
-
   included_files = ["core/**"]
   filename       = "core/cloudbuild.yaml"
 }
