@@ -1,0 +1,14 @@
+steps:
+  - id: plan OR APPLY
+    name: 'docker.io/hashicorp/terraform:latest'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        apk add make
+        if [ "${BRANCH_NAME}" == "master" ]; then
+            make apply
+        else
+            make plan
+        fi
+    dir: 'platform'

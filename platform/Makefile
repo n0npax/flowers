@@ -1,12 +1,16 @@
-plan:
+init:
 	$(MAKE) -C k8s $@
 	$(MAKE) -C cloudbuild $@
 
-apply:
+plan: init
 	$(MAKE) -C k8s $@
 	$(MAKE) -C cloudbuild $@
 
-destroy:
+apply: init
+	#$(MAKE) -C k8s $@
+	$(MAKE) -C cloudbuild $@
+
+destroy: init
 	$(MAKE) -C k8s $@
 	$(MAKE) -C cloudbuild $@
 
