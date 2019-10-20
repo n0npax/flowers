@@ -3,6 +3,9 @@ locals {
     "container.admin",
     "firebase.admin",
     "storage.admin",
+    "monitoring.admin",
+    "logging.admin",
+    "pubsub.admin",
   ])
 }
 
