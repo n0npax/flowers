@@ -14,3 +14,7 @@ variable "branch" {
 variable "env" {
   type = string
 }
+
+variable "cloudbuild_sa" {
+  type = string
+}
