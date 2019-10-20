@@ -10,7 +10,7 @@
 
 ### Build
 * [x] Autogenerate triggers per application
-* [ ] Autodeploy infra
+* [x] Autodeploy infra
 * [ ] Autodeploy app
 
 ### Database NoSQL(firestore)

@@ -33,7 +33,7 @@ resource "google_cloudbuild_trigger" "flowers-trigger" {
 resource "google_cloudbuild_trigger" "platform-trigger" {
   provider    = "google-beta"
   disabled    = false
-  description = "Platform"
+  description = "PLATFORM"
   substitutions = {
     _ENV = "${var.env}"
   }
