@@ -17,6 +17,7 @@ resource "google_cloudbuild_trigger" "flowers-trigger" {
   substitutions = {
     _ENV           = "${var.env}"
     _BUILDER_IMAGE = "temp-image-${each.value}"
+    CODECOV_TOKEN  = ""
   }
 
   github {

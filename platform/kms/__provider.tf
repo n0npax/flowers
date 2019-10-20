@@ -6,7 +6,7 @@ provider "google-beta" {
 terraform {
   backend "gcs" {
     bucket = "flowers-255011-terraform-state"
-    prefix = "terraform/state/k8s"
+    prefix = "terraform/state/kms"
   }
 }
 
