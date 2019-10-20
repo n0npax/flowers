@@ -6,6 +6,7 @@ locals {
     "monitoring.admin",
     "logging.admin",
     "pubsub.admin",
+    "cloudkms.admin",
   ])
 }
 
