@@ -1,5 +1,5 @@
 steps:
-  - id: plan OR APPLY
+  - id: plan or apply
     name: 'docker.io/hashicorp/terraform:latest'
     entrypoint: 'sh'
     args:
