@@ -9,15 +9,21 @@ output "apps" {
   value = "${local.apps}"
 }
 
+data "google_kms_secret" "codecov-token" {
+  crypto_key = "${var.project_id}/australia-southeast1/flowers-keyring/flowers-kms-key"
+  ciphertext = "CiQAawvYIpauodPFICusVyYpJwiEWK2PbOTIS/Dg29lBaUC34VkSTQBuQEe54M7mBQUnWeUX24UCbOQjiStg0odc187nB+UY0CUhqxrxNIH7OUlJNfzhJToWQOwyfQ+K5EsWiCL1MuiHaeUgOkFHgPdPO60R"
+}
+
 resource "google_cloudbuild_trigger" "flowers-trigger" {
   for_each    = toset(local.apps)
   provider    = "google-beta"
+  project     = "${var.project_id}"
   disabled    = false
   description = "APP: ${each.value}"
   substitutions = {
     _ENV           = "${var.env}"
     _BUILDER_IMAGE = "temp-image-${each.value}"
-    CODECOV_TOKEN  = "aa49ea0d-b82a-40b2-89b6-fec2ab9fb383"
+    _CODECOV_TOKEN  = "${data.google_kms_secret.codecov-token.plaintext}"
   }
 
   github {
