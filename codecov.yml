@@ -1,5 +1,5 @@
 ignore:
-  - "setup.py"
+  - "**/setup.py"
 
 comment:
   layout: "reach,diff,flags,tree"
