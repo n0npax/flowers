@@ -16,3 +16,6 @@
 ### Database NoSQL(firestore)
 
 ### Messaging pub/sub
+
+# FIXME
+* [ ] codecov should ignore some files
