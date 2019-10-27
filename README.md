@@ -2,7 +2,7 @@
 
 # System to water flower (v2)
 
-## Components
+## Components (software)
 * [ ] K8s to host metrics and apps
 * [ ] Firebase to host UI
 * [ ] App engine to host core system
@@ -16,6 +16,8 @@
 ### Database NoSQL(firestore)
 
 ### Messaging pub/sub
+
+## Hardware
 
 # FIXME
 * [ ] codecov should ignore some files
